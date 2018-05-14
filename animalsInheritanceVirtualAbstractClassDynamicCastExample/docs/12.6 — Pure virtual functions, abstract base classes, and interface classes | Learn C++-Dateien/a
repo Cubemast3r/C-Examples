@@ -1,0 +1,16 @@
+/**/ WPCOMSharing.update_facebook_count({
+   "http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/": {
+      "share": {
+         "comment_count": 0,
+         "share_count": 22
+      },
+      "og_object": {
+         "id": "10150278949335964",
+         "description": "Pure virtual (abstract) functions and abstract base classes So far, all of the virtual functions we have written have a body (a definition). However, C++ allows you to create a special kind of virt\u2026",
+         "title": "12.6 \u2014 Pure virtual functions, abstract base classes, and interface classes",
+         "type": "article",
+         "updated_time": "2018-02-16T16:59:52+0000"
+      },
+      "id": "http://www.learncpp.com/cpp-tutorial/126-pure-virtual-functions-abstract-base-classes-and-interface-classes/"
+   }
+});

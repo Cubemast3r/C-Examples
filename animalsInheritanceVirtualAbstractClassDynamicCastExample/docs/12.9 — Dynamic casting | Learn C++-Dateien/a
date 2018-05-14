@@ -1,0 +1,16 @@
+/**/ WPCOMSharing.update_facebook_count({
+   "http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/": {
+      "share": {
+         "comment_count": 0,
+         "share_count": 0
+      },
+      "og_object": {
+         "id": "1635096269898613",
+         "description": "Way back in lesson , we examined the concept of casting, and the use of static_cast to convert variables from type to another. In this lesson, we\u2019ll continue by examining another type of cast\u2026",
+         "title": "12.9 \u2014 Dynamic casting",
+         "type": "article",
+         "updated_time": "2017-12-29T21:30:47+0000"
+      },
+      "id": "http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/"
+   }
+});

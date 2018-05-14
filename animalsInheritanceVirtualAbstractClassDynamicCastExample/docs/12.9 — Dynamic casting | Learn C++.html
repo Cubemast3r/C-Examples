@@ -1,0 +1,1344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><script async="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a"></script><style></style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>12.9 — Dynamic casting | Learn C++</title> <link rel="shortcut icon" href="http://www.learncpp.com/blog/wp-content/ata-images/learncpp.ico">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.learncpp.com/blog/xmlrpc.php">
+
+<!-- All in One SEO Pack 2.3.15.3 by Michael Torbert of Semper Fi Web Design[261,298] -->
+<link rel="canonical" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="http://gateway.gear.mycelium.com/">
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » Feed" href="http://www.learncpp.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » Comments Feed" href="http://www.learncpp.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » 12.9 — Dynamic casting Comments Feed" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/feed/">
+<link rel="stylesheet" id="mycelium-gear-widget-admin-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/mycelium-gear-widget-admin.css" type="text/css" media="">
+<link rel="stylesheet" id="crayon-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-familiar-learncppcom-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/familiar-learncppcom.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="ad-inserter-devices-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/devices.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/social-logos.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/jetpack.css" type="text/css" media="all">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5 - Universal disabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/dmedianet.js" async=""></script><script type="text/javascript" async="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/ga.js"></script><script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2173612-1']);
+	_gaq.push(['_gat._forceSSL']);
+	_gaq.push(['_trackPageview']);
+
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/jquery.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var AjaxCheckClicks = {"ajaxurl":"http:\/\/www.learncpp.com\/blog\/wp-admin\/admin-ajax.php","nonce":"b4d4fc217b"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/checkclicks.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var AjaxUpdateClicks = {"ajaxurl":"http:\/\/www.learncpp.com\/blog\/wp-admin\/admin-ajax.php","nonce":"dacfcabaaf"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/updateclicks.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.7.1","is_admin":"0","ajaxurl":"http:\/\/www.learncpp.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/crayon.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var clientcfmonitor = {"client_ip":"119.151.72.80","clickcount":"8","bannedperiod":"1","preurl":"http:\/\/www.learncpp.com\/blog\/wp-content\/plugins\/adsense-click-fraud-monitoring\/clickupdate.php","firstclickdate":[[""],[""]],"updatedVisitCount":"0","isblockedcount":"0","customclass":"cf_monitor","firstclick":"false","disablead":"false","currentURL":"\/cpp-tutorial\/12-9-dynamic-casting\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/check_min.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/gear-widget-host.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/DD_roundies.js"></script>
+<link rel="https://api.w.org/" href="http://www.learncpp.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.learncpp.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.learncpp.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="12.8 — Object slicing" href="http://www.learncpp.com/cpp-tutorial/12-8-object-slicing/">
+<link rel="next" title="12.10 — Printing inherited classes using operator" href="http://www.learncpp.com/cpp-tutorial/12-10-printing-inherited-classes-using-operator/">
+<link rel="shortlink" href="http://www.learncpp.com/?p=5062">
+<link rel="alternate" type="application/json+oembed" href="http://www.learncpp.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.learncpp.com%2Fcpp-tutorial%2F12-9-dynamic-casting%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://www.learncpp.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.learncpp.com%2Fcpp-tutorial%2F12-9-dynamic-casting%2F&amp;format=xml">
+<script type="text/javascript">
+    window._mNHandle = window._mNHandle || {};
+    window._mNHandle.queue = window._mNHandle.queue || [];
+    medianet_versionId = "121199"; 
+    (function() {
+        var sct = document.createElement("script"),
+        sctHl = document.getElementsByTagName("script")[0],
+        isSSL = 'https:' == document.location.protocol;
+        sct.type = "text/javascript";
+        sct.src = (isSSL ? 'https:' : 'http:') + '//contextual.media.net/dmedianet.js?cid=8CUIE2148' + (isSSL ? '&https=1' : '')+'';
+        sct.async = "async";
+        sctHl.parentNode.insertBefore(sct, sctHl);
+    })();
+</script>
+<!-- wpSolution Code -->
+        <script type="text/javascript">
+            function wpSolutionToggle(solution, link, showtext, hidetext) {
+                if (solution.style.display != 'none') {
+                    solution.style.display = 'none';
+                    link.innerHTML = showtext;
+                    link.className = 'solution_link_show';
+                } else {
+                    solution.style.display = 'block';
+                    link.innerHTML = hidetext;
+                    link.className = 'solution_link_hide';
+                }
+            }
+          </script>
+<style type="text/css">img#wpstats{display:none}</style><style type="text/css">body{text-align:center;margin:0;padding:0;font-family:verdana,arial,sans-serif;font-size:13px;line-height:1.4;color:#000000;background:#bbb;padding-bottom:20px}a:link,a:visited,a:active{color:#365DA0;font-weight:bold;text-decoration:none;}a:hover{color:#365DA0;font-weight:bold;text-decoration:underline}ul,ol,dl,p,h1,h2,h3,h4,h5,h6{margin-top:10px;margin-bottom:10px;padding-top:0;padding-bottom:0;}ul ul,ul ol,ol ul,ol ol{margin-top:0;margin-bottom:0}code,pre{font-family:"Courier New",Courier,monospace;font-size:1em}pre{overflow:auto;word-wrap:normal;padding-bottom:1.5em;overflow-y:hidden;width:99%}abbr[title],acronym[title]{border-bottom:1px dotted}hr{display:block;height:2px;border:none;margin:0.5em auto;color:#cccccc;background-color:#cccccc}table{font-size:1em;}div.post,ul.commentlist li,ol.commentlist li{word-wrap:break-word;}pre,.wp_syntax{word-wrap:normal;}div#wrapper{text-align:center;margin-left:auto;margin-right:auto;display:block;width:100%}div#container{padding:20px;box-shadow:0 0 15px #333;-moz-box-shadow:0 0 15px #333;width:auto;margin-left:auto;margin-right:auto;text-align:left;display:block}table#layout{font-size:100%;width:100%;table-layout:fixed}.colone{width:200px}.colone-inner{width:10px}.coltwo{width:100% }.colthree-inner{width:10px}.colthree{width:200px}div#header.full-width{width:100%}div#header,td#header{width:auto;padding:0}table#logoarea,table#logoarea tr,table#logoarea td{margin:0;padding:0;background:none;border:0}table#logoarea{width:100%;border-spacing:0px}img.logo{display:block;margin:0 10px 0 0}td.logoarea-logo{width:1%}h1.blogtitle,h2.blogtitle{ display:block;margin:0;padding:0;letter-spacing:-1px;line-height:1.0em;font-size:200%;text-transform:uppercase;font-smooth:always}h1.blogtitle a:link,h1.blogtitle a:visited,h1.blogtitle a:active,h2.blogtitle a:link,h2.blogtitle a:visited,h2.blogtitle a:active{ text-decoration:none;color:#000000;font-weight:normal;font-smooth:always}h1.blogtitle a:hover,h2.blogtitle a:hover{ text-decoration:none;color:#AC161B;font-weight:normal}p.tagline{margin:0;padding:0;font-size:1.2em;font-weight:normal;color:#444}td.feed-icons{white-space:nowrap;}div.rss-box{height:1%;display:block;padding:10px 0 10px 10px;margin:0;width:280px}a.comments-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:22px;display:block;text-decoration:none;float:right;white-space:nowrap}a.comments-icon:link,a.comments-icon:active,a.comments-icon:visited{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/comment-gray.png) no-repeat scroll center left}a.comments-icon:hover{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/comment.png) no-repeat scroll center left}a.posts-icon{height:22px;line-height:22px;margin:0 5px 0 0;padding-left:20px;display:block;text-decoration:none;float:right;white-space:nowrap}a.posts-icon:link,a.posts-icon:active,a.posts-icon:visited{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/rss-gray.png) no-repeat scroll center left}a.posts-icon:hover{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/rss.png) no-repeat scroll center left}a.email-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:24px;display:block;text-decoration:none;float:right;white-space:nowrap}a.email-icon:link,a.email-icon:active,a.email-icon:visited{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/email-gray.png) no-repeat scroll center left}a.email-icon:hover{background:transparent url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/email.png) no-repeat scroll center left}td.search-box{height:1%}div.searchbox{height:35px;border-bottom:0;width:200px;margin:0;padding:0}div.searchbox-form{margin:5px 10px 5px 10px}div.horbar1,div.horbar2{font-size:1px;clear:both;display:block;position:relative;padding:0;margin:0}div.horbar1{height:0px;background:#ffffff;border-top:dashed 1px #cccccc}div.horbar2{height:0px;background:#ffffff;border-bottom:dashed 1px #cccccc}div.header-image-container-pre{position:relative;margin:0;padding:0;height:150px;}div.header-image-container{position:relative;margin:0;padding:0;height:150px;}div.codeoverlay{position:absolute;top:0;left:0;width:100%;height:100%}div.clickable{position:absolute;top:0;left:0;z-index:3;margin:0;padding:0;width:100%;height:150px;}a.divclick:link,a.divclick:visited,a.divclick:active,a.divclick:hover{width:100%;height:100%;display:block;text-decoration:none}td#left{vertical-align:top;padding-right:10px}td#left-inner{vertical-align:top;padding-right:10px}td#right{vertical-align:top;padding-left:10px}td#right-inner{vertical-align:top;padding-left:10px}td#middle{vertical-align:top;width:100%;background:#fff;padding-left:15px!important;padding-right:15px!important;border:solid 4px #eee}div#footer.full-width{width:100%}div#footer,td#footer{width:auto;background-color:#f7f7f7;border:solid 4px #eee;padding:10px;text-align:center;color:#888;font-size:11px;margin-left:220px;margin-right:220px;margin-top:20px;width:auto!important}div#footer a:link,div#footer a:visited,div#footer a:active,td#footer a:link,td#footer a:visited,td#footer a:active{text-decoration:none;color:#777777;font-weight:normal}div#footer a:hover,td#footer a:hover{text-decoration:none;color:#777777;font-weight:normal}div.widget{display:block;width:auto;font-size:12px;margin:0 0 10px 0;padding:10px;border:solid 4px #eee;background:#fff}div.widget-title{display:block;width:auto}div.widget-title h3,td#left h3.tw-widgettitle,td#right h3.tw-widgettitle,td#left ul.tw-nav-list,td#right ul.tw-nav-list{padding:0;margin:0;font-size:0.9em;text-align:center;font-weight:normal;text-transform:uppercase;letter-spacing:1px;color:#333;border-bottom:solid 1px #eee;padding-bottom:10px;margin-bottom:10px}div.widget ul,div.textwidget{display:block;width:auto;background:#fff}div.widget select{width:98%;margin-top:5px;}div.widget ul{list-style-type:none;margin:0;padding:0;width:auto}div.widget ul li{display:block;margin:2px 0 2px 0px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget ul li:hover,div.widget ul li.sfhover{display:block;width:auto;border-left:solid 0px #000000;}div.widget ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC;}div.widget ul li ul li:hover,div.widget ul li ul li.sfhover{border-left:solid 0px #000000;}div.widget ul li ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC;}div.widget ul li ul li ul li:hover,div.widget ul li ul li ul li.sfhover{border-left:solid 0px #000000;}div.widget a:link,div.widget a:visited,div.widget a:active,div.widget td a:link,div.widget td a:visited,div.widget td a:active,div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active{text-decoration:none;font-weight:normal;color:#365DA0;font-weight:normal;}div.widget ul li ul li a:link,div.widget ul li ul li a:visited,div.widget ul li ul li a:active{color:#365DA0;font-weight:normal;}div.widget ul li ul li ul li a:link,div.widget ul li ul li ul li a:visited,div.widget ul li ul li ul li a:active{color:#365DA0;font-weight:normal;}div.widget a:hover,div.widget ul li a:hover{color:#365DA0;}div.widget ul li ul li a:hover{color:#365DA0;}div.widget ul li ul li ul li a:hover{color:#365DA0;}div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active,div.widget ul li a:hover{display:inline}* html div.widget ul li a:link,* html div.widget ul li a:visited,* html div.widget ul li a:active,* html div.widget ul li a:hover{height:1%; } div.widget_nav_menu ul li,div.widget_pages ul li,div.widget_categories ul li{border-left:0 !important;padding:0 !important}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:active,div.widget_pages ul li a:link,div.widget_pages ul li a:visited,div.widget_pages ul li a:active,div.widget_categories ul li a:link,div.widget_categories ul li a:visited,div.widget_categories ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:hover,div.widget_categories ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li ul li a:link,div.widget_nav_menu ul li ul li a:visited,div.widget_nav_menu ul li ul li a:active,div.widget_pages ul li ul li a:link,div.widget_pages ul li ul li a:visited,div.widget_pages ul li ul li a:active,div.widget_categories ul li ul li a:link,div.widget_categories ul li ul li a:visited,div.widget_categories ul li ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li ul li a:hover,div.widget_pages ul li ul li a:hover,div.widget_categories ul li ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li ul li ul li a:link,div.widget_nav_menu ul li ul li ul li a:visited,div.widget_nav_menu ul li ul li ul li a:active,div.widget_pages ul li ul li ul li a:link,div.widget_pages ul li ul li ul li a:visited,div.widget_pages ul li ul li ul li a:active,div.widget_categories ul li ul li ul li a:link,div.widget_categories ul li ul li ul li a:visited,div.widget_categories ul li ul li ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li ul li ul li a:hover,div.widget_pages ul li ul li ul li a:hover,div.widget_categories ul li ul li ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:active,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:link,div.widget_pages ul li a:active,div.widget_pages ul li a:visited,div.widget_pages ul li a:hover{display:block !important}div.widget_categories ul li a:link,div.widget_categories ul li a:active,div.widget_categories ul li a:visited,div.widget_categories ul li a:hover{display:inline !important}table.subscribe{width:100%}table.subscribe td.email-text{padding:0 0 5px 0;vertical-align:top}table.subscribe td.email-field{padding:0;width:100%}table.subscribe td.email-button{padding:0 0 0 5px}table.subscribe td.post-text{padding:7px 0 0 0;vertical-align:top}table.subscribe td.comment-text{padding:7px 0 0 0;vertical-align:top}div.post,div.page{display:block;margin:0 0 30px 0;padding-top:20px}div.sticky{background:#eee url('<?php bloginfo('template_directory');?>/images/sticky.gif') 99% 5% no-repeat;border:dashed 1px #cccccc;padding:10px}div.post-kicker{margin:0 0 5px 0}div.post-kicker a:link,div.post-kicker a:visited,div.post-kicker a:active{color:#999;text-decoration:none;text-transform:uppercase;letter-spacing:1px}div.post-kicker a:hover{color:#cc0000}div.post-headline{}div.post-headline h1,div.post-headline h2{ margin:0; padding:0;padding:0;margin:0;font-size:1.7em}div.post-headline h2 a:link,div.post-headline h2 a:visited,div.post-headline h2 a:active,div.post-headline h1 a:link,div.post-headline h1 a:visited,div.post-headline h1 a:active{}div.post-headline h2 a:hover,div.post-headline h1 a:hover{}div.post-byline{margin:5px 0 10px 0;color:#999;text-transform:uppercase;letter-spacing:1px;font-size:11px}div.post-byline a:link,div.post-byline a:visited,div.post-byline a:active{}div.post-byline a:hover{}div.post-bodycopy{}div.post-bodycopy p{margin:1em 0;padding:0;display:block}div.post-pagination{}div.post-footer{clear:both;display:block;color:#999;text-transform:uppercase;letter-spacing:1px;font-size:11px}div.post-footer a:link,div.post-footer a:visited,div.post-footer a:active{color:#999;font-weight:normal;text-decoration:none}div.post-footer a:hover{color:#333;font-weight:normal;text-decoration:underline}div.post-kicker img,div.post-byline img,div.post-footer img{border:0;padding:0;margin:0 0 -1px 0;background:none}span.post-ratings{display:inline-block;width:auto;white-space:nowrap}div.navigation-top{border-top:solid 4px #eee;padding:8px 0}div.navigation-middle{margin:10px 0 20px 0;padding:8px 0;border-top:solid 4px #eee;border-bottom:solid 4px #eee}div.navigation-bottom{margin:20px 0 0 0;padding:10px 0 0 0;border-top:solid 4px #eee}div.navigation-comments-above{margin:0 0 10px 0;padding:5px 0 5px 0}div.navigation-comments-below{margin:0 0 10px 0;padding:5px 0 5px 0}div.older{float:left;width:48%;text-align:left;margin:0;padding:0}div.newer{float:right;width:48%;text-align:right;margin:0;padding:0;}div.older-home{float:left;width:44%;text-align:left;margin:0;padding:0}div.newer-home{float:right;width:44%;text-align:right;margin:0;padding:0;}div.home{float:left;width:8%;text-align:center;margin:0;padding:0}form,.feedburner-email-form{margin:0;padding:0;}fieldset{border:1px solid #cccccc;width:auto;padding:0.35em 0.625em 0.75em;display:block;}legend{color:#000000;background:#f4f4f4;border:1px solid #cccccc;padding:2px 6px;margin-bottom:15px;}form p{margin:5px 0 0 0;padding:0;}div.xhtml-tags p{margin:0}label{margin-right:0.5em;font-family:arial;cursor:pointer;}input.text,input.textbox,input.password,input.file,input.TextField,textarea{padding:3px;color:#000000;border-top:solid 1px #333333;border-left:solid 1px #333333;border-right:solid 1px #999999;border-bottom:solid 1px #cccccc;background:url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/inputbackgr.gif) top left no-repeat}textarea{width:96%;}input.inputblur{color:#777777;width:95%}input.inputfocus{color:#000000;width:95%}input.highlight,textarea.highlight{background:#e8eff7;border-color:#37699f}.button,.Button,input[type=submit]{padding:0 2px;height:24px;line-height:16px;background-color:#777777;color:#ffffff;border:solid 2px #555555;font-weight:bold}input.buttonhover{padding:0 2px;cursor:pointer;background-color:#6b9c6b;color:#ffffff;border:solid 2px #496d49}form#commentform input#submit{ padding:0 .25em; overflow:visible}form#commentform input#submit[class]{width:auto}form#commentform input#submit{padding:4px 10px 4px 10px;font-size:1.2em;line-height:1.5em;height:36px}table.searchform{width:100%}table.searchform td.searchfield{padding:0;width:100%}table.searchform td.searchbutton{padding:0 0 0 5px}table.searchform td.searchbutton input{padding:0 0 0 5px}blockquote{height:1%;display:block;clear:both;color:#555555;padding:1em 1em;background:#f4f4f4;border:solid 1px #e1e1e1}blockquote blockquote{height:1%;display:block;clear:both;color:#444444;padding:1em 1em;background:#e1e1e1;border:solid 1px #d3d3d3}div.post table{border-collapse:collapse;margin:10px 0}div.post table caption{width:auto;margin:0 auto;background:#eeeeee;border:#999999;padding:4px 8px;color:#666666}div.post table th{background:#888888;color:#ffffff;font-weight:bold;font-size:90%;padding:4px 8px;border:solid 1px #ffffff;text-align:left}div.post table td{padding:4px 8px;background-color:#ffffff;border-bottom:1px solid #dddddd;text-align:left}div.post table tfoot td{}div.post table tr.alt td{background:#f4f4f4}div.post table tr.over td{background:#e2e2e2}#calendar_wrap{padding:0;border:none}table#wp-calendar{width:100%;font-size:90%;border-collapse:collapse;background-color:#ffffff;margin:0 auto}table#wp-calendar caption{width:auto;background:#eeeeee;border:none;;padding:3px;margin:0 auto;font-size:1em}table#wp-calendar th{border:solid 1px #eeeeee;background-color:#999999;color:#ffffff;font-weight:bold;padding:2px;text-align:center}table#wp-calendar td{padding:0;line-height:18px;background-color:#ffffff;border:1px solid #dddddd;text-align:center}table#wp-calendar tfoot td{border:solid 1px #eeeeee;background-color:#eeeeee}table#wp-calendar td a{display:block;background-color:#eeeeee;width:100%;height:100%;padding:0}div#respond{margin:25px 0;padding:25px;background:#eee;-moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}p.thesetags{margin:10px 0}h3.reply,h3#reply-title{margin:0;padding:0 0 10px 0}ol.commentlist{margin:15px 0 25px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ol.commentlist li{padding:15px 10px;display:block;height:1%;margin:0;background-color:#FFFFFF;border-bottom:dotted 1px #cccccc}ol.commentlist li.alt{display:block;height:1%;background-color:#EEEEEE;border-bottom:dotted 1px #cccccc}ol.commentlist li.authorcomment{display:block;height:1%;background-color:#D8D8FA}ol.commentlist span.authorname{font-weight:bold;font-size:110%}ol.commentlist span.commentdate{color:#666666;font-size:90%;margin-bottom:5px;display:block}ol.commentlist span.editcomment{display:block}ol.commentlist li p{margin:2px 0 5px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}textarea#comment{width:98%;margin:10px 0;display:block}ul.commentlist{margin:15px 0 15px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ul.commentlist ul{margin:0;border:none;list-style-type:none;padding:0}ul.commentlist li{padding:0; margin:0;display:block;clear:both;height:1%;}ul.commentlist ul.children li{ margin-left:30px}ul.commentlist div.comment-container{padding:10px;margin:0}ul.children div.comment-container{background-color:transparent;border:dotted 1px #ccc;padding:10px;margin:0 10px 8px 0; border-radius:5px}ul.children div.bypostauthor{}ul.commentlist li.thread-even{background-color:#FFFFFF;border-bottom:dotted 1px #cccccc}ul.commentlist li.thread-odd{background-color:#EEEEEE;border-bottom:dotted 1px #cccccc}ul.commentlist div.bypostauthor{background-color:#D8D8FA}ul.children div.bypostauthor{border:dotted 1px #BFBCFB}ul.commentlist span.authorname{font-size:110%}div.comment-meta a:link,div.comment-meta a:visited,div.comment-meta a:active,div.comment-meta a:hover{font-weight:normal}div#cancel-comment-reply{margin:-5px 0 10px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}.page-numbers{padding:2px 6px;border:solid 1px #000000;border-radius:6px}span.current{background:#ddd}a.prev,a.next{border:none}a.page-numbers:link,a.page-numbers:visited,a.page-numbers:active{text-decoration:none;color:#365DA0;border-color:#365DA0}a.page-numbers:hover{text-decoration:none;color:#365DA0;border-color:#365DA0}div.xhtml-tags{display:none}abbr em{border:none !important;border-top:dashed 1px #aaa !important;display:inline-block !important;background:url(http://www.learncpp.com/blog/wp-content/themes/atahualpa/images/commentluv.gif) 0% 90% no-repeat;margin-top:8px;padding:5px 5px 2px 20px !important;font-style:normal}p.subscribe-to-comments{margin-bottom:10px}div#gsHeader{display:none;}div.g2_column{margin:0 !important;width:100% !important;font-size:1.2em}div#gsNavBar{border-top-width:0 !important}p.giDescription{font-size:1.2em;line-height:1 !important}p.giTitle{margin:0.3em 0 !important;font-size:1em;font-weight:normal;color:#666}div#wp-email img{border:0;padding:0}div#wp-email input,div#wp-email textarea{margin-top:5px;margin-bottom:2px}div#wp-email p{margin-bottom:10px}input#wp-email-submit{ padding:0; font-size:30px; height:50px; line-height:50px; overflow:visible;}img.WP-EmailIcon{ vertical-align:text-bottom !important}.tw-accordion .tw-widgettitle,.tw-accordion .tw-widgettitle:hover,.tw-accordion .tw-hovered,.tw-accordion .selected,.tw-accordion .selected:hover{ background:transparent !important; background-image:none !important}.tw-accordion .tw-widgettitle span{ padding-left:0 !important}.tw-accordion h3.tw-widgettitle{border-bottom:solid 1px #ccc}.tw-accordion h3.selected{border-bottom:none}td#left .without_title,td#right .without_title{ margin-top:0;margin-bottom:0}ul.tw-nav-list{border-bottom:solid 1px #999;display:block;margin-bottom:5px !important}td#left ul.tw-nav-list li,td#right ul.tw-nav-list li{padding:0 0 1px 0;margin:0 0 -1px 5px; border:solid 1px #ccc;border-bottom:none;border-radius:5px;border-bottom-right-radius:0;border-bottom-left-radius:0;background:#eee}td#left ul.tw-nav-list li.ui-tabs-selected,td#right ul.tw-nav-list li.ui-tabs-selected{ background:none;border:solid 1px #999;border-bottom:solid 1px #fff !important}ul.tw-nav-list li a:link,ul.tw-nav-list li a:visited,ul.tw-nav-list li a:active,ul.tw-nav-list li a:hover{padding:0 8px !important;background:none;border-left:none !important;outline:none}td#left ul.tw-nav-list li.ui-tabs-selected a,td#left li.ui-tabs-selected a:hover,td#right ul.tw-nav-list li.ui-tabs-selected a,td#right li.ui-tabs-selected a:hover{ color:#000000; text-decoration:none;font-weight:bold;background:none !important;outline:none}td#left .ui-tabs-panel,td#right .ui-tabs-panel{ margin:0; padding:0}img{border:0}#dbem-location-map img{ background:none !important}.post img{padding:5px;border:solid 1px #dddddd;background-color:#f3f3f3;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.post img.size-full{max-width:96%;width:auto;margin:5px 0 5px 0}div.post img[class~=size-full]{height:auto;}.post img.alignleft{float:left;margin:10px 10px 5px 0;}.post img.alignright{float:right;margin:10px 0 5px 10px;}.post img.aligncenter{display:block;margin:10px auto}.aligncenter,div.aligncenter{ display:block; margin-left:auto; margin-right:auto}.alignleft,div.alignleft{float:left;margin:10px 10px 5px 0}.alignright,div.alignright{ float:right; margin:10px 0 5px 10px}div.archives-page img{border:0;padding:0;background:none;margin-bottom:0;vertical-align:-10%}.wp-caption{max-width:96%;width:auto 100%;height:auto;display:block;border:1px solid #dddddd;text-align:center;background-color:#f3f3f3;padding-top:4px;margin:10px 0 0 0;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}* html .wp-caption{height:100%;}.wp-caption img{ margin:0 !important; padding:0 !important; border:0 none !important}.wp-caption p.wp-caption-text{font-size:0.8em;line-height:13px;padding:2px 4px 5px;margin:0;color:#666666}img.wp-post-image{float:left;border:0;padding:0;background:none;margin:0 10px 5px 0}img.wp-smiley{ float:none;border:none !important;margin:0 1px -1px 1px;padding:0 !important;background:none !important}img.avatar{float:left;display:block;margin:0 8px 1px 0;padding:3px;border:solid 1px #ddd;background-color:#f3f3f3;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}#comment_quicktags{text-align:left;padding:10px 0 2px 0;display:block}#comment_quicktags input.ed_button{background:#f4f4f4;border:2px solid #cccccc;color:#444444;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px}#comment_quicktags input.ed_button_hover{background:#dddddd;border:2px solid #666666;color:#000000;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px;cursor:pointer}#comment_quicktags #ed_strong{font-weight:bold}#comment_quicktags #ed_em{font-style:italic}@media print{body{background:white;color:black;margin:0;font-size:10pt !important;font-family:arial,sans-serif;}div.post-footer{line-height:normal !important;color:#555 !important;font-size:9pt !important}a:link,a:visited,a:active,a:hover{text-decoration:underline !important;color:#000}h2{color:#000;font-size:14pt !important;font-weight:normal !important}h3{color:#000;font-size:12pt !important;}#header,#footer,.colone,.colone-inner,.colthree-inner,.colthree,.navigation,.navigation-top,.navigation-middle,.navigation-bottom,.wp-pagenavi-navigation,#comment,#respond,.remove-for-print{display:none}td#left,td#right,td#left-inner,td#right-inner{width:0;display:none}td#middle{width:100% !important;display:block}*:lang(en) td#left{ display:none}*:lang(en) td#right{ display:none}*:lang(en) td#left-inner{ display:none}*:lang(en) td#right-inner{ display:none}td#left:empty{ display:none}td#right:empty{ display:none}td#left-inner:empty{ display:none}td#right-inner:empty{ display:none}}ul.rMenu,ul.rMenu ul,ul.rMenu li,ul.rMenu a{display:block;margin:0;padding:0}ul.rMenu,ul.rMenu li,ul.rMenu ul{list-style:none}ul.rMenu ul{display:none}ul.rMenu li{position:relative;z-index:1}ul.rMenu li:hover{z-index:999}ul.rMenu li:hover > ul{display:block;position:absolute}ul.rMenu li:hover{background-position:0 0} ul.rMenu-hor li{float:left;width:auto}ul.rMenu-hRight li{float:right}ul.sub-menu li,ul.rMenu-ver li{float:none}.clearfix:after{ content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{min-width:0;display:inline-block;display:block}* html .clearfix{height:1%;}.clearboth{clear:both;height:1%;font-size:1%;line-height:1%;display:block;padding:0;margin:0}.page-id-8 .post-headline{display:none;} div.useCode{background:linear-gradient(#FFFF66,#CCCC00);border-radius:8px;padding-left:10px;padding-right:10px;padding-top:2px;padding-bottom:2px;font-size:10pt;text-align:left;display:inline-block;font-weight:550;}td#header{padding-bottom:15px;}td#middle{padding:0}div.searchbox-form{margin:5px 0 15px 5px}div#menu1 ul.rMenu{background:transparent;border:none}div#imagecontainer{border-top:solid 0px #333;border-bottom:solid 5px #333;}div.widget ul li{padding:1px 5px 1px 12px !important;background:url('<?php bloginfo('template_directory');?>/images/bullets/round-gray.gif') no-repeat 0 7px}ul.rMenu-hor ul,ul.rMenu-hRight ul{margin-top:0px;}ul.rMenu-hor li{margin-bottom:0px;margin-top:0px;margin-left:0px;}ul.rMenu-hor{padding-left:0px;}ul.rMenu-ver li{margin-top:0xp;}div#menu1 ul.rMenu li a,div#menu2 ul.rMenu li a{padding:6px 10px}div#menu1 ul.rMenu li{margin-right:5px}div#menu1 ul.rMenu li li{margin-right:0}div#menu1 ul.rMenu li,div#menu1 ul.rMenu li a{-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px}div#menu1 ul.rMenu li li,div#menu1 ul.rMenu li li a{-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;-moz-border-radius-topleft:0;-moz-border-radius-topright:0;border-top-left-radius:0;border-top-right-radius:0}div#menu2{ border:dashed 1px #ffffff}ul{list-style-position:inside}@media only screen and (max-width:960px) and (device-width:1920px),only screen and (max-width:840px) and (device-width:1680px),only screen and (max-width:800px) and (device-width:1600px),only screen and (max-width:720px) and (device-width:1440px),only screen and (max-width:683px) and (device-width:1366px),only screen and (max-width:680px) and (device-width:1360px),only screen and (max-width:640px) and (device-width:1280px),only screen and (max-width:512px) and (device-width:1024px),only screen and (max-device-width:1080px){.colthree,td#right{ display:none}}</style>
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+/* JQUERY */
+jQuery(document).ready(function(){ 
+    
+   
+  
+
+	/* jQuery('ul#rmenu').superfish(); */
+	/* jQuery('ul#rmenu').superfish().find('ul').bgIframe({opacity:false}); */
+ 
+	/* For IE6 */
+	if (jQuery.browser.msie && /MSIE 6\.0/i.test(window.navigator.userAgent) && !/MSIE 7\.0/i.test(window.navigator.userAgent) && !/MSIE 8\.0/i.test(window.navigator.userAgent)) {
+
+		/* Max-width for images in IE6 */		
+		var centerwidth = jQuery("td#middle").width(); 
+		
+		/* Images without caption */
+		jQuery(".post img").each(function() { 
+			var maxwidth = centerwidth - 10 + 'px';
+			var imgwidth = jQuery(this).width(); 
+			var imgheight = jQuery(this).height(); 
+			var newimgheight = (centerwidth / imgwidth * imgheight) + 'px';	
+			if (imgwidth > centerwidth) { 
+				jQuery(this).css({width: maxwidth}); 
+				jQuery(this).css({height: newimgheight}); 
+			}
+		});
+		
+		/* Images with caption */
+		jQuery("div.wp-caption").each(function() { 
+			var captionwidth = jQuery(this).width(); 
+			var maxcaptionwidth = centerwidth + 'px';
+			var captionheight = jQuery(this).height();
+			var captionimgwidth =  jQuery("div.wp-caption img").width();
+			var captionimgheight =  jQuery("div.wp-caption img").height();
+			if (captionwidth > centerwidth) { 
+				jQuery(this).css({width: maxcaptionwidth}); 
+				var newcaptionheight = (centerwidth / captionwidth * captionheight) + 'px';
+				var newcaptionimgheight = (centerwidth / captionimgwidth * captionimgheight) + 'px';
+				jQuery(this).css({height: newcaptionheight}); 
+				jQuery("div.wp-caption img").css({height: newcaptionimgheight}); 
+				}
+		});
+		
+		/* sfhover for LI:HOVER support in IE6: */
+		jQuery("ul li").
+			hover( function() {
+					jQuery(this).addClass("sfhover")
+				}, 
+				function() {
+					jQuery(this).removeClass("sfhover")
+				} 
+			); 
+
+	/* End IE6 */
+	}
+	
+	
+	
+	/* Since 3.7.8: Auto resize videos (embed and iframe elements) 
+	TODO: Parse parent's dimensions only once per layout column, not per video
+	*/
+	function bfa_resize_video() {
+		jQuery('embed, iframe').each( function() {
+			var video = jQuery(this),
+			videoWidth = video.attr('width'); // use the attr here, not width() or css()
+			videoParent = video.parent(),
+			videoParentWidth = parseFloat( videoParent.css( 'width' ) ),
+			videoParentBorder = parseFloat( videoParent.css( 'border-left-width' ) ) 
+										+  parseFloat( videoParent.css( 'border-right-width' ) ),
+			videoParentPadding = parseFloat( videoParent.css( 'padding-left' ) ) 
+										+  parseFloat( videoParent.css( 'padding-right' ) ),
+			maxWidth = videoParentWidth - videoParentBorder - videoParentPadding;
+
+			if( videoWidth > maxWidth ) {
+				var videoHeight = video.attr('height'),
+				videoMaxHeight = ( maxWidth / videoWidth * videoHeight );
+				video.attr({ width: maxWidth, height: videoMaxHeight });
+			} 
+
+		});	
+	}
+	bfa_resize_video();
+	jQuery(window).resize( bfa_resize_video );
+
+		
+	jQuery(".post table tr").
+		mouseover(function() {
+			jQuery(this).addClass("over");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("over");
+		});
+
+	
+	jQuery(".post table tr:even").
+		addClass("alt");
+
+	
+	jQuery("input.text, input.TextField, input.file, input.password, textarea").
+		focus(function () {  
+			jQuery(this).addClass("highlight"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("highlight"); 
+		})
+	
+	jQuery("input.inputblur").
+		focus(function () {  
+			jQuery(this).addClass("inputfocus"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("inputfocus"); 
+		})
+
+		
+
+	
+	jQuery("input.button, input.Button, input#submit").
+		mouseover(function() {
+			jQuery(this).addClass("buttonhover");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("buttonhover");
+		});
+
+	/* toggle "you can use these xhtml tags" */
+	jQuery("a.xhtmltags").
+		click(function(){ 
+			jQuery("div.xhtml-tags").slideToggle(300); 
+		});
+
+	/* For the Tabbed Widgets plugin: */
+	jQuery("ul.tw-nav-list").
+		addClass("clearfix");
+
+		
+	
+});
+
+//]]>
+</script>
+
+<!--[if IE 6]>
+<script type="text/javascript">DD_roundies.addRule("a.posts-icon, a.comments-icon, a.email-icon, img.logo");</script>
+<![endif]-->
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="12.9 — Dynamic casting">
+<meta property="og:url" content="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/">
+<meta property="og:description" content="Way back in lesson , we examined the concept of casting, and the use of static_cast to convert variables from type to another. In this lesson, we’ll continue by examining another type of cast…">
+<meta property="article:published_time" content="2016-11-23T00:48:26+00:00">
+<meta property="article:modified_time" content="2017-11-05T17:39:48+00:00">
+<meta property="og:site_name" content="Learn C++">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="post-template-default single single-post postid-5062 single-format-standard category-cpp-tutorial">
+
+		<!-- Full Width Header -->
+		<div id="header" class="full-width">
+		<div id="imagecontainer-pre" class="header-image-container-pre">    <div id="imagecontainer" class="header-image-container" style="background: url('http://www.learncpp.com/blog/wp-content/ata-images/header/LearnCpp_1920.jpg') top center no-repeat;"></div><div class="clickable"><a class="divclick" title="Learn C++" href="http://www.learncpp.com/">&nbsp;</a></div><div class="codeoverlay"></div></div>		</div>
+		<!-- / Full Width Header -->
+<div id="wrapper">
+<div id="container">
+<table id="layout" cellspacing="0" cellpadding="0" border="0">
+<colgroup>
+<col class="colone"><col class="coltwo">
+<col class="colthree"></colgroup> 
+
+	<!-- Main Body -->	
+	<tbody><tr id="bodyrow">
+
+				<!-- Left Sidebar -->
+		<td id="left">
+
+			<div id="text-2" class="widget widget_text">			<div class="textwidget"><ul>
+<li><a href="http://www.learncpp.com/"><big><big>Main Page</big></big></a></li>
+<li><a href="http://www.learncpp.com/learn-c-site-index/">Site Index</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="http://www.learncpp.com/site-news/find-something-wrong/">Report an Issue</a></li>
+<li><a href="http://www.learncpp.com/about/">About / Contact</a></li>
+<li><a href="http://www.learncpp.com/about/#Support">Support LearnCpp</a></li>
+</ul>
+</div>
+		</div><div id="text-3" class="widget widget_text"><div class="widget-title"><h3>Search</h3></div>			<div class="textwidget"><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="google_window">
+<table bgcolor="#ffffff" border="0">
+<tbody><tr><td valign="top" align="center" nowrap="nowrap">
+
+<!--<br/>-->
+<input name="domains" value="LearnCpp.com" type="hidden">
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input name="q" size="16" maxlength="255" id="sbi" type="text">
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tbody><tr>
+<td>
+<input name="sitesearch" value="www.LearnCpp.com" checked="checked" id="ss1" type="hidden">
+<label for="ss1" title="Search LearnCpp.com"></label></td>
+</tr>
+</tbody></table>
+<label for="sbb" style="display: none">Submit search form</label>
+<input name="sa" value="Google Search" id="sbb" type="submit">
+<input name="client" value="pub-0588844875925051" type="hidden">
+<input name="forid" value="1" type="hidden">
+<input name="channel" value="7774154974" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input name="oe" value="ISO-8859-1" type="hidden">
+<input name="safe" value="active" type="hidden">
+<input name="flav" value="0000" type="hidden">
+<input name="sig" value="q6fLrjobHHgL00cW" type="hidden">
+</td></tr></tbody></table>
+</form>
+<!-- SiteSearch Google --></div>
+		</div><div id="text-9" class="widget widget_text">			<div class="textwidget"><div class="cf_monitor">
+<script type="text/javascript">
+    google_ad_client = "ca-pub-0588844875925051";
+    google_ad_slot = "2780990843";
+    google_ad_width = 160;
+    google_ad_height = 600;
+</script>
+<!-- Post - Left Sidebar - Wide Skyscraper -->
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/show_ads.js">
+</script>
+</div></div>
+		</div>
+		</td>
+		<!-- / Left Sidebar -->
+		
+				
+
+		<!-- Main Column -->
+		<td id="middle">
+
+    
+		
+	<div class="code-block code-block-1 ai-desktop-tablet" style="float:left;margin:8px 8px 8px 0px;"><div class="cf_monitor">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0588844875925051";
+/* Content Page Top Large */
+google_ad_slot = "7945645163";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/show_ads.js">
+</script>
+</div>
+</div>	
+								<div class="post-5062 post type-post status-publish format-standard hentry category-cpp-tutorial odd" id="post-5062">
+						<div class="post-headline">		<h1>12.9 — Dynamic casting</h1>
+		</div>		<div class="post-byline">By Alex on November 22nd, 2016 | last modified by Alex on November 5th, 2017</div>		<div class="post-bodycopy clearfix"><p>Way back in lesson <a href="http://www.learncpp.com/cpp-tutorial/4-4a-explicit-type-conversion-casting/"> 4.4a -- Explicit type conversion (casting)</a>, we examined the concept of casting, and the use of static_cast to convert variables from type to another.</p>
+<p>In this lesson, we’ll continue by examining another type of cast: dynamic_cast.</p>
+<p><strong>The need for dynamic_cast</strong></p>
+<p>When dealing with polymorphism, you’ll often encounter cases where 
+you have a pointer to a base class, but you want to access some 
+information that exists only in a derived class.</p>
+<p>Consider the following (slightly contrived) program:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d703e7c407543097" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-16" style="height: 16px;">16</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-17" style="height: 16px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-18" style="height: 16px;">18</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-19" style="height: 16px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-20" style="height: 16px;">20</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-21" style="height: 16px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-22" style="height: 16px;">22</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-23" style="height: 16px;">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-24" style="height: 16px;">24</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-25" style="height: 16px;">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-26" style="height: 16px;">26</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-27" style="height: 16px;">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-28" style="height: 16px;">28</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-29" style="height: 16px;">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-30" style="height: 16px;">30</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-31" style="height: 16px;">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-32" style="height: 16px;">32</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-33" style="height: 16px;">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-34" style="height: 16px;">34</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-35" style="height: 16px;">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-36" style="height: 16px;">36</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-37" style="height: 16px;">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-38" style="height: 16px;">38</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-39" style="height: 16px;">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-40" style="height: 16px;">40</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-41" style="height: 16px;">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-42" style="height: 16px;">42</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-43" style="height: 16px;">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-44" style="height: 16px;">44</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-45" style="height: 16px;">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-46" style="height: 16px;">46</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-47" style="height: 16px;">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e7c407543097-48" style="height: 16px;">48</div><div class="crayon-num" data-line="crayon-5abc81d703e7c407543097-49" style="height: 16px;">49</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d703e7c407543097-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-2"><span class="crayon-p">#include &lt;string&gt;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-4"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-5"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-6"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-7"><span class="crayon-h">	</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">m_value</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-8">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-9"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-10"><span class="crayon-h">	</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-11"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">m_value</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-12"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-13"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-14"><span class="crayon-h">	</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-15"><span class="crayon-h">	</span><span class="crayon-m">virtual</span><span class="crayon-h"> </span><span class="crayon-o">~</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-16"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-18"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-19"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-20"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-21"><span class="crayon-h">	</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-22">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-23"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-24"><span class="crayon-h">	</span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-25"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">m_name</span><span class="crayon-sy">(</span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-26"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-27"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-28">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-29"><span class="crayon-h">	</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-30"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-31">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-32"><span class="crayon-v">Base</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">bool</span><span class="crayon-h"> </span><span class="crayon-v">bReturnDerived</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-33"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-34"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">bReturnDerived</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-35"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-36"><span class="crayon-h">	</span><span class="crayon-st">else</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-37"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-38"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-39">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-40"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-41"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-42"><span class="crayon-h">	</span><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-43">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-44"><span class="crayon-h">	</span><span class="crayon-c">// how do we print the Derived object's name here, having only a Base pointer?</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-45">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-46"><span class="crayon-h">	</span><span class="crayon-i">delete</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-47">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e7c407543097-48"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e7c407543097-49"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0052 seconds] -->
+<p></p>
+<p>In this program, function getObject() always returns a Base pointer, 
+but that pointer may be pointing to either a Base or a Derived object.  
+In the case where the pointer is pointing to a Derived object, how would
+ we call Derived::getName()?</p>
+<p>One way would be to add a virtual function to Base called getName() 
+(so we could call it with a Base object, and have it dynamically resolve
+ to Derived::getName()).  But what would this function return if you 
+called it with a Base object?  There isn’t really any value that makes 
+sense.  Furthermore, we would be polluting our Base class with things 
+that really should only be the concern of the Derived class.</p>
+<p>We know that C++ will implicitly let you convert a Derived pointer 
+into a Base pointer (in fact, getObject() does just that).  This process
+ is sometimes called <strong>upcasting</strong>.  However, what if there
+ was a way to convert a Base pointer back into a Derived pointer?  Then 
+we could call Derived::getName() directly using that pointer, and not 
+have to worry about virtual function resolution at all.</p>
+<p><strong>dynamic_cast</strong></p>
+<p>C++ provides a casting operator named <strong>dynamic_cast</strong> 
+that can be used for just this purpose.  Although dynamic casts have a 
+few different capabilities, by far the most common use for dynamic 
+casting is for converting base-class pointers into derived-class 
+pointers.  This process is called <strong>downcasting</strong>.</p>
+<p>Using dynamic_cast works just like static_cast.  Here’s our example 
+main() from above, using a dynamic_cast to convert our Base pointer back
+ into a Derived pointer:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d703e8f405219383" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d703e8f405219383-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e8f405219383-12" style="height: 16px;">12</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d703e8f405219383-1"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-2"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703e8f405219383-3"><span class="crayon-h">	</span><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-4">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e8f405219383-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">d</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">dynamic_cast</span><span class="crayon-o">&lt;</span><span class="crayon-v">Derived</span><span class="crayon-o">*</span><span class="crayon-o">&gt;</span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// use dynamic cast to convert Base pointer into Derived pointer</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-6">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e8f405219383-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"The name of the Derived is: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">d</span><span class="crayon-o">-&gt;</span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">'\n'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-8">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e8f405219383-9"><span class="crayon-h">	</span><span class="crayon-i">delete</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-10">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e8f405219383-11"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e8f405219383-12"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0020 seconds] -->
+<p></p>
+<p>This prints:</p>
+<pre>The name of the Derived is: Apple
+</pre>
+<p><strong>dynamic_cast failure</strong></p>
+<p>The above example works because b is actually pointing to a Derived 
+object, so converting b into a Derived pointer is successful.</p>
+<p>However, we’ve made quite a dangerous assumption: that b is pointing 
+to a Derived object.  What if b wasn’t pointing to a Derived object?  
+This is easily tested by changing the argument to getObject() from true 
+to false.  In that case, getObject() will return a Base pointer to a 
+Base object.  When we try to dynamic_cast that to a Derived, it will 
+fail, because the conversion can’t be made.</p>
+<p>If a dynamic_cast fails, the result of the conversion will be a null pointer.</p>
+<p>Because we haven’t checked for a null pointer result, we access 
+d-&gt;getName(), which will try to dereference a null pointer, leading 
+to undefined behavior (probably a crash).</p>
+<p>In order to make this program safe, we need to ensure the result of the dynamic_cast actually succeeded:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d703e98005231462" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703e98005231462-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5abc81d703e98005231462-13" style="height: 16px;">13</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d703e98005231462-1"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-2"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703e98005231462-3"><span class="crayon-h">	</span><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-4">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e98005231462-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">d</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">dynamic_cast</span><span class="crayon-o">&lt;</span><span class="crayon-v">Derived</span><span class="crayon-o">*</span><span class="crayon-o">&gt;</span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// use dynamic cast to convert Base pointer into Derived pointer</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-6">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703e98005231462-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">d</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c">// make sure d is non-null</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"The name of the Derived is: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">d</span><span class="crayon-o">-&gt;</span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">'\n'</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e98005231462-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-10"><span class="crayon-h">	</span><span class="crayon-i">delete</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e98005231462-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703e98005231462-12"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703e98005231462-13"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0020 seconds] -->
+<p></p>
+<p><em>Rule: Always ensure your dynamic casts actually succeeded by checking for a null pointer result</em>.</p>
+<p>Note that Because dynamic_cast does some consistency checking at 
+runtime (to ensure the conversion can be made), use of dynamic_cast does
+ incur a performance penalty.</p>
+<p>Also note that there are several cases where downcasting using dynamic_cast will not work:<br>
+1) With protected or private inheritance.<br>
+2) For classes that do not declare or inherit any virtual functions (and thus don’t have a virtual table).<br>
+3) In certain cases involving virtual base classes (see <a href="https://msdn.microsoft.com/en-us/library/cby9kycs.aspx" onclick="_gaq.push(['_trackEvent', 'outbound-article', 'https://msdn.microsoft.com/en-us/library/cby9kycs.aspx', 'this page']);">this page</a> for an example of some of these cases, and how to resolve them).</p>
+<p><strong>Downcasting with static_cast</strong></p>
+<p>It turns out that downcasting can also be done with static_cast. The 
+main difference is that static_cast does no runtime type checking to 
+ensure that what you’re doing makes sense.  This makes using static_cast
+ faster, but more dangerous.  If you cast a Base* to a Derived*, it will
+ “succeed” even if the Base pointer isn’t pointing to a Derived object. 
+ This will result in undefined behavior when you try to access the 
+resulting Derived pointer (that is actually pointing to a Base object).</p>
+<p>If you’re absolutely sure that the pointer you’re downcasting will 
+succeed, then using static_cast is acceptable.  One way to ensure that 
+you know what type of object you’re pointing to is to use a virtual 
+function.  Here’s one (not great because it uses a global variable) way 
+to do that:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d703ea0859630593" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="width: 100% ! important;">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-16" style="height: 16px;">16</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-17" style="height: 16px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-18" style="height: 16px;">18</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-19" style="height: 16px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-20" style="height: 16px;">20</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-21" style="height: 16px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-22" style="height: 16px;">22</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-23" style="height: 16px;">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-24" style="height: 16px;">24</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-25" style="height: 16px;">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-26" style="height: 16px;">26</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-27" style="height: 16px;">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-28" style="height: 16px;">28</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-29" style="height: 16px;">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-30" style="height: 16px;">30</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-31" style="height: 16px;">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-32" style="height: 16px;">32</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-33" style="height: 16px;">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-34" style="height: 16px;">34</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-35" style="height: 16px;">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-36" style="height: 16px;">36</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-37" style="height: 16px;">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-38" style="height: 16px;">38</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-39" style="height: 16px;">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-40" style="height: 16px;">40</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-41" style="height: 16px;">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-42" style="height: 16px;">42</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-43" style="height: 16px;">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-44" style="height: 16px;">44</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-45" style="height: 16px;">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-46" style="height: 16px;">46</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-47" style="height: 16px;">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-48" style="height: 16px;">48</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-49" style="height: 16px;">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-50" style="height: 16px;">50</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-51" style="height: 16px;">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-52" style="height: 16px;">52</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-53" style="height: 16px;">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-54" style="height: 16px;">54</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-55" style="height: 16px;">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-56" style="height: 16px;">56</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-57" style="height: 16px;">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-58" style="height: 16px;">58</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-59" style="height: 16px;">59</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-60" style="height: 16px;">60</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-61" style="height: 16px;">61</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-62" style="height: 16px;">62</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-63" style="height: 16px;">63</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea0859630593-64" style="height: 16px;">64</div><div class="crayon-num" data-line="crayon-5abc81d703ea0859630593-65" style="height: 16px;">65</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d703ea0859630593-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-2"><span class="crayon-p">#include &lt;string&gt;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-4"><span class="crayon-c">// Class identifier</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-5"><span class="crayon-t">enum</span><span class="crayon-h"> </span><span class="crayon-e">ClassID</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-6"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-7"><span class="crayon-h">	</span><span class="crayon-v">BASE</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-8"><span class="crayon-h">	</span><span class="crayon-v">DERIVED</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-9"><span class="crayon-h">	</span><span class="crayon-c">// Others can be added here later</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-10"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-12"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-13"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-14"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-15"><span class="crayon-h">	</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">m_value</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-16">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-17"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-18"><span class="crayon-h">	</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-19"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">m_value</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-20"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-21"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-22">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-23"><span class="crayon-h">	</span><span class="crayon-m">virtual</span><span class="crayon-h"> </span><span class="crayon-o">~</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-24"><span class="crayon-h">	</span><span class="crayon-m">virtual</span><span class="crayon-h"> </span><span class="crayon-e">ClassID </span><span class="crayon-e">getClassID</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">BASE</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-25"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-26">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-27"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-28"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-29"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-30"><span class="crayon-h">	</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-31">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-32"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-33"><span class="crayon-h">	</span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-34"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">m_name</span><span class="crayon-sy">(</span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-35"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-36"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-37">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-38"><span class="crayon-h">	</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-39"><span class="crayon-h">	</span><span class="crayon-m">virtual</span><span class="crayon-h"> </span><span class="crayon-e">ClassID </span><span class="crayon-e">getClassID</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">DERIVED</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-40">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-41"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-42">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-43"><span class="crayon-v">Base</span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">bool</span><span class="crayon-h"> </span><span class="crayon-v">bReturnDerived</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-44"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-45"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">bReturnDerived</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-46"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-47"><span class="crayon-h">	</span><span class="crayon-st">else</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-48"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-49"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-50">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-51"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-52"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-53"><span class="crayon-h">	</span><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-54">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-55"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-o">-&gt;</span><span class="crayon-e">getClassID</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-v">DERIVED</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-56"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-57"><span class="crayon-h">		</span><span class="crayon-c">// We already proved b is pointing to a Derived object, so this should always succeed</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-58"><span class="crayon-h">		</span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">d</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">static_cast</span><span class="crayon-o">&lt;</span><span class="crayon-v">Derived</span><span class="crayon-o">*</span><span class="crayon-o">&gt;</span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-59"><span class="crayon-h">		</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"The name of the Derived is: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">d</span><span class="crayon-o">-&gt;</span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">'\n'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-60"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-61">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-62"><span class="crayon-h">	</span><span class="crayon-i">delete</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-63">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea0859630593-64"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea0859630593-65"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0072 seconds] -->
+<p></p>
+<p>But if you’re going to go through all of the trouble to implement 
+this (and pay the cost of calling a virtual function and processing the 
+result), you might as well just use dynamic_cast.</p>
+<p><strong>dynamic_cast and references</strong></p>
+<p>Although all of the above examples show dynamic casting of pointers 
+(which is more common), dynamic_cast can also be used with references.  
+This works analogously to how dynamic_cast works with pointers.</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d703ea8626032738" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-16" style="height: 16px;">16</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-17" style="height: 16px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-18" style="height: 16px;">18</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-19" style="height: 16px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-20" style="height: 16px;">20</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-21" style="height: 16px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-22" style="height: 16px;">22</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-23" style="height: 16px;">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-24" style="height: 16px;">24</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-25" style="height: 16px;">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-26" style="height: 16px;">26</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-27" style="height: 16px;">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-28" style="height: 16px;">28</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-29" style="height: 16px;">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-30" style="height: 16px;">30</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-31" style="height: 16px;">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-32" style="height: 16px;">32</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-33" style="height: 16px;">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-34" style="height: 16px;">34</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-35" style="height: 16px;">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-36" style="height: 16px;">36</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-37" style="height: 16px;">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-38" style="height: 16px;">38</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-39" style="height: 16px;">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d703ea8626032738-40" style="height: 16px;">40</div><div class="crayon-num" data-line="crayon-5abc81d703ea8626032738-41" style="height: 16px;">41</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d703ea8626032738-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-2"><span class="crayon-p">#include &lt;string&gt;</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-4"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-5"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-6"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-7"><span class="crayon-h">	</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">m_value</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-8">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-9"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-10"><span class="crayon-h">	</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-11"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">m_value</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-12"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-13"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-14">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-15"><span class="crayon-h">	</span><span class="crayon-m">virtual</span><span class="crayon-h"> </span><span class="crayon-o">~</span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-16"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-18"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">Base</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-19"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-20"><span class="crayon-m">protected</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-21"><span class="crayon-h">	</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-22">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-23"><span class="crayon-m">public</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-24"><span class="crayon-h">	</span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-h"> </span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-25"><span class="crayon-h">		</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Base</span><span class="crayon-sy">(</span><span class="crayon-t">value</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">m_name</span><span class="crayon-sy">(</span><span class="crayon-v">name</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-26"><span class="crayon-h">	</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-27"><span class="crayon-h">	</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-28">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-29"><span class="crayon-h">	</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-30"><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-31">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-32"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-33"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-34"><span class="crayon-h">	</span><span class="crayon-e">Derived </span><span class="crayon-e">apple</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// create an apple</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-35"><span class="crayon-h">	</span><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-v">&amp;b </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">apple</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// set base reference to object</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-36"><span class="crayon-h">	</span><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-v">&amp;d </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">dynamic_cast</span><span class="crayon-o">&lt;</span><span class="crayon-v">Derived</span><span class="crayon-o">&amp;</span><span class="crayon-o">&gt;</span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// dynamic cast using a reference instead of a pointer</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-37">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-38"><span class="crayon-h">	</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"The name of the Derived is: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">d</span><span class="crayon-sy">.</span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">'\n'</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// we can access Derived::getName through d</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-39">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d703ea8626032738-40"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d703ea8626032738-41"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0047 seconds] -->
+<p></p>
+<p>Because C++ does not have a “null reference”, dynamic_cast can’t 
+return a null reference upon failure.  Instead, if the dynamic_cast of a
+ reference fails, an exception of type std::bad_cast is thrown.  We talk
+ about exceptions later in this tutorial.</p>
+<p><strong>dynamic_cast vs static_cast</strong></p>
+<p>New programmers are sometimes confused about when to use static_cast 
+vs dynamic_cast.  The answer is quite simple: use static_cast unless 
+you’re downcasting, in which case dynamic_cast is usually a better 
+choice.  However, you should also consider avoiding casting altogether 
+and just using virtual functions.</p>
+<p><strong>Downcasting vs virtual functions</strong></p>
+<p>There are some developers who believe dynamic_cast is evil and 
+indicative of a bad class design.  Instead, these programmers say you 
+should use virtual functions.</p>
+<p>In general, using a virtual function <em>should</em> be preferred over downcasting.  However, there are times when downcasting is the better choice:</p>
+<ul>
+<li>When you can not modify the base class to add a virtual function (e.g. because the base class is part of the standard library)</li>
+<li>When you need access to something that is derived-class specific (e.g. an access function that only exists in the derived class)</li>
+<li>When adding a virtual function to your base class doesn’t make sense
+ (e.g. there is no appropriate value for the base class to return).  
+Using a pure virtual function may be an option here if you don’t need to
+ instantiate the base class.</li>
+</ul>
+<table cellpadding="3" border="0">
+<tbody><tr><td>
+	<a href="http://www.learncpp.com/cpp-tutorial/12-10-printing-inherited-classes-using-operator/" style="text-decoration:none"><img src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/next.png" align="middle"> 12.10 -- Printing inherited classes using operator&lt;&lt;</a>
+</td></tr>
+<tr class="alt"><td>
+        <a href="http://www.learncpp.com/" style="text-decoration:none"><img src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/up.png" align="middle"> Index</a>
+</td></tr>
+<tr><td>
+	<a href="http://www.learncpp.com/cpp-tutorial/12-8-object-slicing/" style="text-decoration:none"><img src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/prev.png" align="middle"> 12.8 -- Object slicing</a>
+</td></tr>
+</tbody></table>
+
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-5062" class="share-facebook sd-button share-icon" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-5062" class="share-twitter sd-button share-icon" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-5062" class="share-google-plus-1 sd-button share-icon" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-5062" class="share-pinterest sd-button share-icon" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/?share=pinterest&amp;nb=1" target="_blank" title="Click to share on Pinterest"><span>Pinterest</span></a></li><li class="share-end"></li></ul></div></div></div><div class="code-block code-block-2" style="float:left;margin:8px 8px 8px 0px;"><div class="cf_monitor">
+<div id="171844866">
+    <script type="text/javascript">
+    try {
+        window._mNHandle.queue.push(function () {
+		    window._mNDetails.loadTag("171844866", "336x280", "171844866");
+		    });
+		}
+    catch (error) {}
+	</script>
+</div>
+</div>
+
+
+<!--
+<div class="cf_monitor">
+<div id="Below Content">
+    <script type="text/javascript">
+    var width = 0;
+    if (document.getElementById('middle'))
+        width = document.getElementById('middle').clientWidth;
+    else
+        width = document.innerWidth;
+
+    if (width >= 768)
+    {
+        try {
+            window._mNHandle.queue.push(function () {
+		        window._mNDetails.loadTag("Below Content", "728x90", "588184144");
+		        });
+		    }
+        catch (error) {}
+    }
+	</script>
+</div>
+</div>
+-->
+</div></div>						<div class="post-footer"><img src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/folder-gray.gif" alt=""> <a class="cpp-tutorial" href="http://www.learncpp.com/category/cpp-tutorial/" title="View all posts in C++ Tutorial">C++ Tutorial</a>   | <a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/print/" title="Print This Post" rel="nofollow"><img class="WP-PrintIcon" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/printer_famfamfam.gif" alt="Print This Post" title="Print This Post" style="border: 0px;"></a>&nbsp;<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/print/" title="Print This Post" rel="nofollow">Print This Post</a></div>		</div><!-- / Post -->	
+						
+	
+			
+
+	<a name="comments"></a><!-- named anchor for skip links -->
+	<h3 id="comments">26 comments to 12.9 — Dynamic casting</h3>
+
+	
+	<!-- Comment List -->
+	<ul class="commentlist">
+		
+			<li class="comment even thread-even depth-1 clearfix" id="comment-310068">
+		<div id="div-comment-310068" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Artur</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-310068">
+		November 5, 2017 at 2:32 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-310068" onclick='return addComment.moveForm( "comment-310068", "310068", "respond", "5062" )' aria-label="Reply to Artur"> · Reply</a></span>		 
+		</div>
+		<p>Hi!<br>
+Very nice tutorials!<br>
+But I am confused with this statement:<br>
+"Also note that there are several cases where downcasting using dynamic_cast will not work:<br>
+1) With a virtual base class."<br>
+As far as I know this is not true. But it is true that static_cast is not possible in this case.</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-310091">
+		<div id="div-comment-310091" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-310091">
+		November 5, 2017 at 9:40 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-310091" onclick='return addComment.moveForm( "comment-310091", "310091", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>It's partially true.  I updated the lesson with a link to a page 
+showing a few cases where dynamic_cast won't work with virtual base 
+classes and how to resolve.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 clearfix" id="comment-299814">
+		<div id="div-comment-299814" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">KnowMore</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-299814">
+		July 20, 2017 at 8:04 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-299814" onclick='return addComment.moveForm( "comment-299814", "299814", "respond", "5062" )' aria-label="Reply to KnowMore"> · Reply</a></span>		 
+		</div>
+		<p>Alex, Is it necessary to have atleast one virtual function To Perform Downcasting?<br>
+Asking this Because I just discovered this thing while writing a program !<br>
+WAITING FOR YOUR REPLY !<br>
+Thanks In Advance 🙂</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-299909">
+		<div id="div-comment-299909" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-299909">
+		July 20, 2017 at 11:18 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-299909" onclick='return addComment.moveForm( "comment-299909", "299909", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Yes, it does, and I forgot to mention that.  Thanks for pointing that out.</p>
+		</div>
+<ul class="children">
+		<li class="comment even depth-3 clearfix" id="comment-299954">
+		<div id="div-comment-299954" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">KnowMore</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-299954">
+		July 21, 2017 at 7:25 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-299954" onclick='return addComment.moveForm( "comment-299954", "299954", "respond", "5062" )' aria-label="Reply to KnowMore"> · Reply</a></span>		 
+		</div>
+		<p>Your Welcome Man !<br>
+And, Thanks for your Great Tutorials 🙂</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 clearfix" id="comment-298580">
+		<div id="div-comment-298580" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Pablo</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-298580">
+		July 10, 2017 at 7:32 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-298580" onclick='return addComment.moveForm( "comment-298580", "298580", "respond", "5062" )' aria-label="Reply to Pablo"> · Reply</a></span>		 
+		</div>
+		<p>How does the program knows at runtime if the downcast is possible? Does it keep track of every object it creates?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-298609">
+		<div id="div-comment-298609" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-298609">
+		July 10, 2017 at 10:17 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-298609" onclick='return addComment.moveForm( "comment-298609", "298609", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>&gt; How does the program knows at runtime if the downcast is possible?</p>
+<p>There's a good answer to this question <a href="https://stackoverflow.com/questions/13783312/how-does-dynamic-cast-work" onclick="_gaq.push(['_trackEvent', 'outbound-comment', 'https://stackoverflow.com/questions/13783312/how-does-dynamic-cast-work', 'here']);" rel="nofollow">here</a>.</p>
+<p>&gt; Does it keep track of every object it creates?</p>
+<p>No.  You're providing a pointer or reference to an object to 
+downcast.  The compiler can look at that object and determine whether 
+downcasting is possible/appropriate.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 clearfix" id="comment-295279">
+		<div id="div-comment-295279" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Ivan</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-295279">
+		June 11, 2017 at 11:48 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-295279" onclick='return addComment.moveForm( "comment-295279", "295279", "respond", "5062" )' aria-label="Reply to Ivan"> · Reply</a></span>		 
+		</div>
+		<p>Hi,<br>
+According to your explanation, the main difference between dynamic_cast 
+and static_cast - is that dynamic_cast does runtime type checking to 
+ensure that what you’re doing makes sense.<br>
+So the dynamic_cast makes additional checking BUT then suddenly we are 
+explained, that it can fail and the result of the conversion will be a 
+null pointer. The logical question is - if it is making a runtime 
+checking, why are we not guarded from these cases, when the dynamic_cast
+ returns null pointer ?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-295326">
+		<div id="div-comment-295326" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-295326">
+		June 12, 2017 at 1:52 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-295326" onclick='return addComment.moveForm( "comment-295326", "295326", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>dynamic_cast needs some way to tell you when you're doing something
+ that doesn't make sense, so your program can react to that.  It does so
+ by returning a null pointer.  That null pointer is the dynamic_cast's 
+way of saying, "this didn't make any sense".  You can then do whatever 
+you want with that information.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 clearfix" id="comment-287113">
+		<div id="div-comment-287113" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Hugh Mungus</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-287113">
+		April 10, 2017 at 4:55 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-287113" onclick='return addComment.moveForm( "comment-287113", "287113", "respond", "5062" )' aria-label="Reply to Hugh Mungus"> · Reply</a></span>		 
+		</div>
+		<p>Hey Alex,</p>
+<p>On your last point, "When adding a virtual function to your base 
+class doesn’t make sense (e.g. there is no appropriate value for the 
+base class to return)", couldn't you just make the virtual function a 
+pure virtual one if you never plan to instantiate the base class?</p>
+<p>Also, I made some modifications to main() to output appropriate stuff
+ to console based on what getObject() returned using the 
+&lt;typeinfo&gt; header</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d7078cb472880661" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-16" style="height: 16px;">16</div><div class="crayon-num" data-line="crayon-5abc81d7078cb472880661-17" style="height: 16px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d7078cb472880661-18" style="height: 16px;">18</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d7078cb472880661-1"><span class="crayon-p">#include &lt;typeinfo&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-2">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-3"><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-4">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-5"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-6"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-7">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">getObject</span><span class="crayon-sy">(</span><span class="crayon-t">true</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-8">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-10">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-r">typeid</span><span class="crayon-sy">(</span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-r">typeid</span><span class="crayon-sy">(</span><span class="crayon-v">Derived</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"The name of our derived is "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-r">dynamic_cast</span><span class="crayon-o">&lt;</span><span class="crayon-v">Derived</span><span class="crayon-o">*</span><span class="crayon-o">&gt;</span><span class="crayon-sy">(</span><span class="crayon-v">b</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">'\n'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-12">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-st">else</span></div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"Bases are nameless beings...\n"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-14">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-c">// use dynamic cast to convert Base pointer into Derived pointer</span></div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-16">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-i">delete</span><span class="crayon-h"> </span><span class="crayon-v">b</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5abc81d7078cb472880661-17">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d7078cb472880661-18"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0024 seconds] -->
+<p></p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-287605">
+		<div id="div-comment-287605" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-287605">
+		April 14, 2017 at 8:27 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-287605" onclick='return addComment.moveForm( "comment-287605", "287605", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Yes, you can definitely use a pure virtual function, but only if 
+you never plan to instantiate the base class.  If you still need to 
+instantiate the base class, then that solution doesn't work.  I've 
+updated the lesson to make a note of this.  Thanks for the thought!</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 clearfix" id="comment-285501">
+		<div id="div-comment-285501" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">apfelpektin</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-285501">
+		March 31, 2017 at 4:27 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-285501" onclick='return addComment.moveForm( "comment-285501", "285501", "respond", "5062" )' aria-label="Reply to apfelpektin"> · Reply</a></span>		 
+		</div>
+		<p>the code from 'dynamic_cast and references' gives me an error:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707a1b288589133" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707a1b288589133-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d707a1b288589133-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d707a1b288589133-3" style="height: 16px;">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707a1b288589133-1"><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-v">&amp;b </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d707a1b288589133-2">&nbsp;</div><div class="crayon-line" id="crayon-5abc81d707a1b288589133-3"><span class="crayon-v">error</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">invalid </span><span class="crayon-e">initialization </span><span class="crayon-e">of </span><span class="crayon-v">non</span><span class="crayon-o">-</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-e">reference </span><span class="crayon-e">of </span><span class="crayon-i">type</span><span class="crayon-h"> </span>‘<span class="crayon-v">Base</span><span class="crayon-o">&amp;</span>’<span class="crayon-h"> </span><span class="crayon-e">from </span><span class="crayon-e">an </span><span class="crayon-e">rvalue </span><span class="crayon-e">of </span><span class="crayon-i">type</span><span class="crayon-h"> </span>‘<span class="crayon-i">Derived</span>’</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0014 seconds] -->
+<p></p>
+<p>i guess the temporary is not an lvalue and doesn't have (or give) an 
+address, but i'm not shure how to resolve this. the following seems to 
+work:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707a26586088631" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707a26586088631-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d707a26586088631-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5abc81d707a26586088631-3" style="height: 16px;">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707a26586088631-1"><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-v">&amp;b </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d707a26586088631-2"><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-5abc81d707a26586088631-3"><span class="crayon-v">delete</span><span class="crayon-h"> </span><span class="crayon-v">&amp;b</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p>..but what was the code intended to be?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-285831">
+		<div id="div-comment-285831" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-285831">
+		April 2, 2017 at 12:26 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-285831" onclick='return addComment.moveForm( "comment-285831", "285831", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Mistake on my part -- you're not allowed to initialize a non-const 
+reference with an r-value (even though Visual Studio lets you do so).  
+I've updated the example to work around this by making sure the 
+reference is being initialized with an lvalue.</p>
+		</div>
+<ul class="children">
+		<li class="comment odd alt depth-3 clearfix" id="comment-285903">
+		<div id="div-comment-285903" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">apfelpektin</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-285903">
+		April 3, 2017 at 1:01 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-285903" onclick='return addComment.moveForm( "comment-285903", "285903", "respond", "5062" )' aria-label="Reply to apfelpektin"> · Reply</a></span>		 
+		</div>
+		<p>thanks for the clarification.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 clearfix" id="comment-277358">
+		<div id="div-comment-277358" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Surya</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-277358">
+		February 7, 2017 at 10:21 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-277358" onclick='return addComment.moveForm( "comment-277358", "277358", "respond", "5062" )' aria-label="Reply to Surya"> · Reply</a></span>		 
+		</div>
+		<p>Can I use dynamic_cast on references? If yes, what happens if it fails?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-277523">
+		<div id="div-comment-277523" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-277523">
+		February 8, 2017 at 5:13 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-277523" onclick='return addComment.moveForm( "comment-277523", "277523", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Yes, you can use dynamic_cast with references, and if it fails it 
+will throw an exception of type std::bad_cast.  I added an example of 
+how to do so to the lesson.</p>
+		</div>
+<ul class="children">
+		<li class="comment even depth-3 clearfix" id="comment-278236">
+		<div id="div-comment-278236" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">dazedbrain</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-278236">
+		February 13, 2017 at 8:32 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-278236" onclick='return addComment.moveForm( "comment-278236", "278236", "respond", "5062" )' aria-label="Reply to dazedbrain"> · Reply</a></span>		 
+		</div>
+		<p>"Because C++ does not have a “null reference”, dynamic_cast can’t 
+return a null reference upon failure. Instead, if the static_cast of a 
+reference fails, an exception of type std::bad_cast is thrown. We talk 
+about exceptions later in this tutorial."</p>
+<p>Did you mean "if the dynamic_cast of a reference fails"?</p>
+<p>Or is it that both dynamic_cast and static_cast will throw an exception of type std::bad_cast?</p>
+<p>Thanks in advance</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-4 clearfix" id="comment-278318">
+		<div id="div-comment-278318" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-278318">
+		February 14, 2017 at 1:51 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-278318" onclick='return addComment.moveForm( "comment-278318", "278318", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Yes, I meant dynamic_cast, not static_cast.  Sorry for the confusion.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 clearfix" id="comment-274302">
+		<div id="div-comment-274302" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Mauricio Mirabetti</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-274302">
+		January 19, 2017 at 9:04 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-274302" onclick='return addComment.moveForm( "comment-274302", "274302", "respond", "5062" )' aria-label="Reply to Mauricio Mirabetti"> · Reply</a></span>		 
+		</div>
+		<p>Alex, throughout the code sections there are some blocks 
+{&nbsp;&nbsp;} being finished with semi-colon (e.g. virtual ~Base() {};)
+ Just a typo, I know, but thought you might want to know.<br>
+Best regards.<br>
+Mauricio</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-274336">
+		<div id="div-comment-274336" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-274336">
+		January 19, 2017 at 12:41 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-274336" onclick='return addComment.moveForm( "comment-274336", "274336", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Fixed, thanks!</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 clearfix" id="comment-273044">
+		<div id="div-comment-273044" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Vladimir</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-273044">
+		January 11, 2017 at 11:44 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-273044" onclick='return addComment.moveForm( "comment-273044", "273044", "respond", "5062" )' aria-label="Reply to Vladimir"> · Reply</a></span>		 
+		</div>
+		<p>Hello Alex! I can't compile first example. The compiler says that 
+type is not polymorphic. I'm using qtcreator as an IDE and gcc. What can
+ be the reason?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-273801">
+		<div id="div-comment-273801" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-273801">
+		January 16, 2017 at 6:55 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-273801" onclick='return addComment.moveForm( "comment-273801", "273801", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>I'm not sure -- the types are polymorphic.  The program compiles 
+under multiple different compilers, so I'm not sure what the issue is 
+with yours.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 clearfix" id="comment-272450">
+		<div id="div-comment-272450" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Gajendra Gulgulia</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-272450">
+		January 8, 2017 at 1:09 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-272450" onclick='return addComment.moveForm( "comment-272450", "272450", "respond", "5062" )' aria-label="Reply to Gajendra Gulgulia"> · Reply</a></span>		 
+		</div>
+		<p>Hi Alex,</p>
+<p>I don't really get the syntax:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707df6031998884" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707df6031998884-1" style="height: 16px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707df6031998884-1"><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>what does the keyword new after return do technically and what is the
+ difference if we don't use "new" and simply return the derived object? </p>
+<p>Thanks in advance</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-272503">
+		<div id="div-comment-272503" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-272503">
+		January 8, 2017 at 3:14 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-272503" onclick='return addComment.moveForm( "comment-272503", "272503", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>This is essentially the same as:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707d5a653581774" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707d5a653581774-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5abc81d707d5a653581774-2" style="height: 16px;">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707d5a653581774-1"><span class="crayon-v">Derived</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">ptr</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5abc81d707d5a653581774-2"><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">ptr</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p>
+<p>Just without using a temporary variable.</p>
+<p>If you don't use new, then you'll return a Derived object by value rather than by address.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 clearfix" id="comment-269788">
+		<div id="div-comment-269788" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Ninja</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-269788">
+		December 24, 2016 at 1:30 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-269788" onclick='return addComment.moveForm( "comment-269788", "269788", "respond", "5062" )' aria-label="Reply to Ninja"> · Reply</a></span>		 
+		</div>
+		<p>Hey Alex, I have a question. So why did you make your getName() function return by reference?</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707ee8799100085" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707ee8799100085-1" style="height: 16px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707ee8799100085-1"><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-t">string</span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-e">getName</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">m_name</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0031 seconds] -->
+<p>Wouldn't that make it an l-value making it modifiable and chainable? (which we don't want for a getter).</p>
+<p>Also, I'm slightly confused about the whole casting thing. So a 
+derived object is made up of a base part and a derived part. So when you
+ do this below, would it be upcasting? What is upcasting?</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5abc81d707ef2209992524" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px ! important; line-height: 16px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5abc81d707ef2209992524-1" style="height: 16px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5abc81d707ef2209992524-1"><span class="crayon-v">Base</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-v">b</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Derived</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Apple"</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p>Is b still made up of a base part and derived part? I'm guessing it 
+would be or else we can't use virtual functions to access derived 
+functions. If we upcast it, does it mean it will only have the base part
+ now and we can't make it polymorphic (ie. object slicing)?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-270181">
+		<div id="div-comment-270181" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#comment-270181">
+		December 26, 2016 at 10:23 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="#comment-270181" onclick='return addComment.moveForm( "comment-270181", "270181", "respond", "5062" )' aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>I've updated getName() to return a const std::string&amp;, for the reasons you suggest.</p>
+<p>Yes, what you suggest would be upcasting.  First the Derived object 
+is created, and then the Derived pointer is upcast to a Base pointer.  
+The Base pointer points at the Base portion of the Derived object (the 
+rest of the Derived object still exists, it's just inaccessible directly
+ through Base -- for this, we need virtual functions, or to downcast it 
+back to a Derived pointer).  The object isn't sliced here, as the 
+Derived portion of the object still exists.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	
+	</ul>
+	<!-- / Comment List -->
+
+	
+
+
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.learncpp.com/cpp-tutorial/12-9-dynamic-casting/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://www.learncpp.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p><textarea name="comment" id="comment" rows="10" cols="10" tabindex="4"></textarea></p><div class="useCode">Put all code inside code tags: [code]your code here[/code]</div><p><input class="text author" id="author" name="author" size="30" tabindex="1" type="text">&nbsp;&nbsp;<label for="author"><strong>Name </strong> (required)</label></p>
+<p><input class="text email" id="email" name="email" size="30" tabindex="2" type="text">&nbsp;&nbsp;<label for="email"><strong>Email</strong> (will not be published) (required)</label></p>
+<p><input class="text url" id="url" name="url" size="30" tabindex="3" type="text">&nbsp;&nbsp;<label for="url">Website</label></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="5062" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="371b40a9f1" type="hidden"></p><p style="display: none;"></p>			<input id="ak_js" name="ak_js" value="1522326316518" type="hidden"></form>
+			</div><!-- #respond -->
+	<div class="code-block code-block-7" style="margin:8px 0px;"><div class="cf_monitor">
+<div id="Content Below Comment">
+    <script type="text/javascript">
+    var width = 0;
+    if (document.getElementById('middle'))
+        width = document.getElementById('middle').clientWidth;
+    else
+        width = document.innerWidth;
+
+    if (width >= 768)
+    {
+        try {
+            window._mNHandle.queue.push(function () {
+		        window._mNDetails.loadTag("Content Below Comment", "728x90", "287758258");
+		        });
+		    }
+        catch (error) {}
+    }
+	</script>
+</div>
+</div>
+</div>		
+    
+
+</td>
+<!-- / Main Column -->
+
+<!-- Right Inner Sidebar -->
+
+<!-- Right Sidebar -->
+<td id="right">
+
+	<div id="text-7" class="widget widget_text">			<div class="textwidget"><div class="cf_monitor">
+<!-- Post - Right Sidebar - Wide Sky -->
+<script type="text/javascript">
+    google_ad_client = "ca-pub-0588844875925051";
+    google_ad_slot = "0955932809";
+    google_ad_width = 160;
+    google_ad_height = 600;
+</script>
+<!-- Post - Right Sidebar - Wide Sky -->
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/show_ads.js">
+</script>
+</div></div>
+		</div>    
+<!-- 
+	Plugin: Custom Meta Widget	Plugin URL: http://shinraholdings.com/plugins/custom-meta-widget/-->
+
+
+	<div id="custommetawidget-2" class="widget customMetaWidget">	<div class="widget-title"><h3>Admin</h3></div>	<ul>
+	
+	
+    <li><a href="http://www.learncpp.com/blog/wp-login.php">Log in</a></li>	
+	</ul>
+    
+	</div>
+</td>
+<!-- / Right Sidebar -->
+
+</tr>
+<!-- / Main Body -->
+
+
+</tbody></table><!-- / layout -->
+</div><!-- / container -->
+</div><!-- / wrapper -->
+		<!-- Full Width Footer -->
+		<div id="footer" class="full-width">
+    LearnCpp.com -- Teaching you how to program in C++ since May 25, 2007.&nbsp;&nbsp;Copyright © 2018 <a href="http://www.learncpp.com/">Learn C++</a> - All Rights Reserved<br>Powered by <a href="http://wordpress.org/">WordPress</a> &amp; <a href="http://forum.bytesforall.com/">Atahualpa</a>    
+    
+    
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/www.learncpp.com\/cpp-tutorial\/12-9-dynamic-casting\/":5062};
+	</script>
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/comment-reply.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/wp-embed.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/form.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/sharing.js"></script>
+<script type="text/javascript" src="12.9%20%E2%80%94%20Dynamic%20casting%20%7C%20Learn%20C++-Dateien/e-201813.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.1.1',blog:'3928254',post:'5062',tz:'-8',srv:'www.learncpp.com'} ]);
+	_stq.push([ 'clickTrackerInit', '3928254', '5062' ]);
+</script>
+		</div>
+		<!-- / Full Width Footer -->
+
+
+
+
+
+
+</body></html>
+<!-- Dynamic page generated in 0.932 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2018-03-28 22:04:07 -->
+<!-- Compression = gzip -->
