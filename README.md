@@ -8,7 +8,8 @@ C++ examples I use(d) for teaching students.
 ---
 1. [I18N - translation with gnu gettext](i18n/i18n.cpp)
 2. [Radioactive Vampire Bunny Exercise from cplusplus.com](radioactiveBunnyPopulation/instruction.txt)
-2. [5 simple examples that show the usage of inheritance, (pure) virtual/abstract methods/classes and dynamic cast](animalsInheritanceVirtualAbstractClassDynamicCastExample/src)
+3. [5 simple examples that show the usage of inheritance, (pure) virtual/abstract methods/classes and dynamic cast](animalsInheritanceVirtualAbstractClassDynamicCastExample/src)
+4. [Doxygen documentation example](doxygenExample)
 
 
 ## References

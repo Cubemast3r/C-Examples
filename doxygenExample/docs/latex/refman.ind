@@ -1,0 +1,47 @@
+\begin{theindex}
+
+  \item {Animal}, \hyperpage{13}
+    \subitem {Animal}, \hyperpage{14}
+    \subitem {get\+Name}, \hyperpage{14}
+    \subitem {name\+\_\+}, \hyperpage{15}
+    \subitem {say\+Something}, \hyperpage{14}
+  \item {animal.\+h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {Cat}, \hyperpage{15}
+    \subitem {Cat}, \hyperpage{16}
+    \subitem {say\+Something}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Dog}, \hyperpage{17}
+    \subitem {Dog}, \hyperpage{18}
+    \subitem {say\+Something}, \hyperpage{18}
+
+  \indexspace
+
+  \item {get\+Name}
+    \subitem {Animal}, \hyperpage{14}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.\+cpp}, \hyperpage{20}
+  \item {main.\+cpp}, \hyperpage{20}
+    \subitem {main}, \hyperpage{20}
+
+  \indexspace
+
+  \item {name\+\_\+}
+    \subitem {Animal}, \hyperpage{15}
+
+  \indexspace
+
+  \item {say\+Something}
+    \subitem {Animal}, \hyperpage{14}
+    \subitem {Cat}, \hyperpage{16}
+    \subitem {Dog}, \hyperpage{18}
+  \item {std}, \hyperpage{11}
+
+\end{theindex}

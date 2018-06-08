@@ -1,0 +1,97 @@
+\hypertarget{classAnimal}{}\section{Animal Class Reference}
+\label{classAnimal}\index{Animal@{Animal}}
+
+
+{\ttfamily \#include $<$animal.\+h$>$}
+
+
+
+Inheritance diagram for Animal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classAnimal__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAnimal_a4ef4b49b9ed502193d9a1e447af9dca7}{Animal} (const string \&name)
+\item 
+const string \& \hyperlink{classAnimal_a9e5f35bbcafaddb2af949273d04a0055}{get\+Name} () const
+\item 
+virtual void \hyperlink{classAnimal_a1da8e52d19af5bd43a3755d9d5454598}{say\+Something} () const =0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \hyperlink{classAnimal_af9bbbc58067910197fe5d7330e5cf09a}{name\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+abstract base class of all derived animal classes.
+
+\begin{DoxyAuthor}{Author}
+Arno Wilhelm 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxySince}{Since}
+2018-\/05-\/29 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAnimal_a4ef4b49b9ed502193d9a1e447af9dca7}\label{classAnimal_a4ef4b49b9ed502193d9a1e447af9dca7}} 
+\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{Animal()}{Animal()}}
+{\footnotesize\ttfamily Animal\+::\+Animal (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the animal. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnimal_a9e5f35bbcafaddb2af949273d04a0055}\label{classAnimal_a9e5f35bbcafaddb2af949273d04a0055}} 
+\index{Animal@{Animal}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily const string\& Animal\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter returns the name of the animal.
+
+\begin{DoxyReturn}{Returns}
+string Returns the name of the animal. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAnimal_a1da8e52d19af5bd43a3755d9d5454598}\label{classAnimal_a1da8e52d19af5bd43a3755d9d5454598}} 
+\index{Animal@{Animal}!say\+Something@{say\+Something}}
+\index{say\+Something@{say\+Something}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{say\+Something()}{saySomething()}}
+{\footnotesize\ttfamily virtual void Animal\+::say\+Something (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual interface method must be implemented by derived classes. Depending on the type of animal they give print out an animal specific sound. 
+
+Implemented in \hyperlink{classCat_a2da2143abb847a8719e302614ccb8d2e}{Cat}, and \hyperlink{classDog_aa76235fa1a137f2fccf5138e5b92d0b3}{Dog}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classAnimal_af9bbbc58067910197fe5d7330e5cf09a}\label{classAnimal_af9bbbc58067910197fe5d7330e5cf09a}} 
+\index{Animal@{Animal}!name\+\_\+@{name\+\_\+}}
+\index{name\+\_\+@{name\+\_\+}!Animal@{Animal}}
+\subsubsection{\texorpdfstring{name\+\_\+}{name\_}}
+{\footnotesize\ttfamily const string Animal\+::name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{animal_8h}{animal.\+h}\end{DoxyCompactItemize}
